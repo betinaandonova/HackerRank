@@ -95,8 +95,6 @@ responseTimes[n-1]
 0
 ```
 
----
-
 ## 💡 Approach
 
 * Maintain a running sum of previous elements.
@@ -114,41 +112,3 @@ responseTimes[n-1]
 
 * **O(1)**
 
----
-
-## 🧑‍💻 Example Implementation (Python)
-
-```python
-def count_greater_than_avg(responseTimes):
-    n = len(responseTimes)
-    if n <= 1:
-        return 0
-
-    count = 0
-    total_sum = responseTimes[0]
-
-    for i in range(1, n):
-        avg = total_sum / i
-        if responseTimes[i] > avg:
-            count += 1
-        total_sum += responseTimes[i]
-
-    return count
-
-
-# Example usage
-n = int(input())
-if n == 0:
-    print(0)
-else:
-    arr = [int(input()) for _ in range(n)]
-    print(count_greater_than_avg(arr))
-```
-
----
-
-## 🚀 Tips
-
-* Avoid recalculating averages using loops — use a running sum instead.
-* Be careful with integer vs floating-point division.
-* Works efficiently even for large values (up to `10^9`).
